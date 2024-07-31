@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" type="x-icon" href="/assets/favicon.png">
+    <link rel="apple-touch-icon"  href="/assets/favicon.png">
+    <link rel="icon" sizes="192x192" href="/assets/favicon.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        
+        #registrationForm {
+            display: none; /* Initially hide the registration form */
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+       
+        <div class="row">
+          <ul class="main-nav">
+                <li class="active"> <a href=""> HOME</a>  </li>   
+                <li> <a href=""> STAFF </a>  </li>
+                <li> <a href=""> REGISTRATION </a>  </li>
+                <li> <a href=""> E-LEARNING </a>  </li>
+                <li> <a href=""> FAQ </a>  </li>
+            </ul>
+        </div>
+</header>
+    
+    <section class="main" >
+        <div class="head"> 
+            <section class="logo">
+                <h1>FEDERAL UNIVERSITY OF TECHNOLOGY MINNA</h1>
+
+            </section>   
+                        
+               <div id="loginForm">
+                <h4 style="color: purple;">Login Portal</h4>
+                   <form action="/login" method="post">
+                       <div class="input-group">
+                           <input type="text" id="username" name="username" placeholder="Username" required>
+                       </div>
+                       <div class="input-group">
+                           <input type="password" id="password" name="password" placeholder="Password" required>
+                       </div>
+             
+                       <div class="input-group">
+                            <button style="background-color: purple;" type="submit"> Login</button>
+                       </div>
+                        <a style="color: purple; " href="/register">Don't have an account? Register now</a>
+                   </form>
+                  
+                   <% if (message) { %>
+                    <p id="msg" style="color: green;"> <%= message %> </p>
+                <% } %>
+                <% if (error) { %>
+                    <p id="msg" style="color: red;"> <%= error %> </p>
+                <% } %>
+                  
+               </div>             
+        </div> 
+         
+    </section> 
+        
+    <h3 class="footer1">&copy; Group 7 Assignment 2024</h3>
+ 
+</body>
+
+<script src="scripts/script.js"> 
+</script>
+</html>
+       

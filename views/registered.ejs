@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registered courses</title>
+<link rel="stylesheet" href="/css/inner.css">
+</head>
+<body>
+
+    <form action="/logout" method="post">
+        <button type="submit" id="logout"> Log out</button>
+    </form>
+  
+    
+  <div class="container">
+   
+     
+
+        <% if (message) { %>
+            <p id="msg" style="color: green;"> <%= message %> </p>
+        <% } %>
+        <% if (error) { %>
+            <p id="msg" style="color: red;"> <%= error %> </p>
+        <% } %>
+          
+ 
+
+
+
+    
+        <% if (registeredCourses) { %>
+         
+      
+        <div id="coursesContainer">
+            <h1> Registered courses</h1>
+            <table id="coursesTable">
+                <thead>
+                  
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Nature</th>
+                     
+                        <% registeredCourses.forEach(course => { %>
+                    <tr>
+                      
+                        <td><%= course.code %></td>
+                        <td><%= course.title %></td>
+                        <td><%= course.credit %></td>
+                        <td><%= course.nature %></td>
+
+                        <form action="/select" method="post">
+                            <input type="text" value="<%= course._id  %>" name="courseId" hidden>
+                            <input type="text" value="<%= course.level  %>" name="level" hidden>
+                            <input type="text" value="<%= course.code  %>" name="code" hidden>
+                            <input type="text" value="<%= course.title  %>" name="title" hidden>
+                            <input type="number" value="<%= course.credit  %>" name="credit" hidden>
+                            <input type="text" value="<%= course.semester  %>" name="semester" hidden>
+                            <input type="text" value="<%= course.nature  %>" name="nature" hidden>
+                            <input type="hidden" value="<%= level %>">
+                        </form>
+                    </tr>
+                        <% }) %>
+                   
+                </thead>
+                <tbody></tbody>
+                
+            </table>   
+        </div>
+
+        <% } else { %>
+            <h1> No Courses available. Check back later</h1>  
+            <% } %>
+
+            <div class="input-group">
+                <button id='pay' type="submit" class="payment-btn" style="background-color: purple; color: antiquewhite; border: none;" > Print... </button>
+            </div>
+
+
+        <div id="coursesContainer" style="display: none;" >
+            <h3>Second Semester Courses:</h3>
+            <table id="coursesTable">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                
+            </table>
+
+            
+        </div>
+
+       
+
+                     </div>
+    
+
+    
+      
+
+</body>
+ </html>
+

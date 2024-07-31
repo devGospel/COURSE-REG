@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+ 
+
+  <div class="hero">
+    <nav>
+        <img class="logo" src="img/img.png" alt="logo">
+        <h1>DASHBOARD</h1>
+        <ul>
+            <li> <a href="/remita">Registration </a></li>
+            <li> <a href="/remita">Course Registration </a></li>
+            <li> <a href="/profile">Profile</a></li>
+            <li> <a href="#">Calender  </a></li>
+            <li> <a href="/payment">Payment History  </a></li>
+        </ul>
+        <img class="user-pic" src="<%= user.photo %>" alt="user" onclick="toggleMenu()">
+      
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img style="width: 50px; height: 50px; border-radius: 50%; cursor: pointer;margin-left: 30px;" src="<%= user.photo %>" alt="user">
+                    <h3 style="color: purple; margin-left: 16px; text-transform: capitalize;"> <%= user.username %></h3>
+                </div>
+                <hr>
+
+                <a href="/profile" class="sub-menu-link">
+                    <p>Edit Profile </p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bxs-cog' ></i> 
+                    <p>Settings & Privacy</p>
+                    <span>></span>
+                </a>
+
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bxs-cog' ></i> 
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+                
+                <form method="get">
+                  <a href="/logout" class="sub-menu-link">
+                  <p>Log out</p>
+                  <span>></span>
+                  </a>   
+                </form>
+  
+            </div>
+        </div>
+    </nav>
+</div>
+    
+       
+  <main>
+    <section class="card">
+      <h2 style="text-transform: capitalize; font-size: 40px;">Welcome, <%= user.username %></h2>
+      <!-- <p>Your courses for this semester:</p>
+      <ul>
+        <li>Course 1</li>
+        <li>Course 2</li>
+        <li>Course 3</li>
+      </ul> -->
+    </section>
+
+    <section class="card">
+      <h2>Upcoming Events</h2>
+      <ul>
+        <li>Event 1</li>
+        <li>Event 2</li>
+        <li>Event 3</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Recent Grades</h2>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Grade</th>
+        </tr>
+        <tr>
+          <td>Course 1</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>Course 2</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>Course 3</td>
+          <td>A-</td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Federal University, Minna. All rights reserved.</p>
+  </footer>
+
+  
+  <script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenu() {
+        subMenu.classList.toggle("open-menu")
+    }
+</script>
+</body>
+</html>

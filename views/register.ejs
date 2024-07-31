@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Register </title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <div class="row">
+ 
+      <ul class="main-nav">
+        
+
+            <li class="active"> <a href=""> HOME</a>  </li>   
+            <li> <a href=""> STAFF </a>  </li>
+            <li> <a href=""> REGISTRATION </a>  </li>
+            <li> <a href=""> E-LEARNING </a>  </li>
+            <li> <a href=""> CONTACT</a>  </li>
+            <li> <a href=""> FAQ </a>  </li>
+        </ul>
+    </div>
+</header>
+<body>
+    <% if (message) { %>
+        <p id="msg" style="color: green;"> <%= message %> </p>
+    <% } %>
+    <% if (error) { %>
+        <p id="msg" style="color: red;"> <%= error %> </p>
+    <% } %>
+
+
+  <section class="main">
+            <div class="head">
+        
+            <section class="logo">
+                <h1 style="background-color: purple;">FEDERAL UNIVERSITY OF TECHNOLOGY MINNA</h1>
+            </section>
+
+
+        
+        <div id="registerForm">
+            <h4 style="color: purple;">Sign up</h4>
+            <form action="/register" method="post">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+        
+                <div class="input-group">
+                        <button style="background-color: purple;" type="submit"> Register</button>
+                </div>
+                <a style="color: purple;" href="/"> Already have an account? Login</a>
+
+            </form>
+
+            
+        </div>
+
+
+  
+</div> 
+
+</section> 
+
+<h3 class="footer1">&copy; Group 7 Assignment 2024</h3>
+
+
+  <script src="/scripts/script.js">
+  </script>
+</body>
+</html>
+

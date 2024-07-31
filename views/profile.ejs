@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Profile</title>
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <div class="hero">
+         
+        <nav>
+            <img class="logo" src="img/img.png" alt="logo">
+            <ul>
+                <li> <a href="#">Bio-data </a></li>
+                <li> <a href="#">Photo </a></li>
+                <li> <a href="#">Update</a></li>
+                <li> <a href="#">Contact  </a></li>
+            </ul>
+            <img class="user-pic" src="<%= photo %>" alt="user" onclick="toggleMenu()">
+
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img class="user-pic" src="<%= photo %>" alt="user">
+
+                        <h3><%= name %></h3>
+                    </div>
+                    <hr>
+
+                <form action="/upload" method="post" enctype="multipart/form-data">   
+                        <label for="input-file"> Choose photo</label>             
+                        <input id="input-file" type="file" name="image" hidden>
+                        <input type="submit" id="upload-btn">                 
+                </form>
+  
+
+                    <a href="#" class="sub-menu-link">
+                        <i class='bx bxs-cog' ></i> 
+                        <p>Settings & Privacy</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="#" class="sub-menu-link">
+                        <i class='bx bxs-cog' ></i> 
+                        <p>Help & Support</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        
+                        <p>Log out</p>
+                        <span>></span>
+                    </a>
+                </div>
+    
+            </div>
+        </nav>
+    </div>
+    
+    <script src="scripts/profile.js"></script>
+</body>
+</html>

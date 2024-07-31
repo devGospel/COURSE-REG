@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Registration</title>
+<link rel="stylesheet" href="/css/inner.css">
+</head>
+<body>
+
+    <form action="/logout" method="post">
+        <button type="submit" id="logout"> Log out</button>
+    </form>
+
+
+   <form action="/course" method="post">
+        <button type="submit"> Add course</button>
+    </form> 
+    
+
+
+  <div class="container">
+    <h1>Course Registration Portal</h1>
+     
+
+        <% if (message) { %>
+            <p id="msg" style="color: green;"> <%= message %> </p>
+        <% } %>
+
+       
+        <% if (error) { %>
+            <p id="msg" style="color: red;"> <%= error %> </p>
+        <% } %>
+
+          
+
+        <div id="coursesContainer">
+            <h3>Registered Semester Courses:</h3>
+           
+            <table id="coursesTable">
+                <thead>
+                  
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Nature</th>
+                        <th>Select</th>
+                        <% registeredCourses.forEach(course => { %>
+                    <tr>
+                      
+                        <td><%= course.code %></td>
+                        <td><%= course.title %></td>
+                        <td><%= course.credit %></td>
+                        <td><%= course.nature %></td>
+
+                        <form action="/deleteCourse" method="post">
+                            <input type="text" value="<%= course._id  %>" name="courseId" hidden>
+                            <input type="text" value="<%= course.code %>" name="code" hidden>
+                            <td><button type="submit" style="color: white; background-color: red;"> Delete</button></td>
+                            <input type="hidden" value="<%= level %>">
+                        </form>
+                    </tr>
+                        <% }) %>
+                   
+                </thead>
+                <tbody></tbody>
+                
+            </table> 
+            <h3 style="color: red;"> Total Credit Unit: <%= totalCredit %></h3>
+
+
+
+
+        
+          
+        </div>
+        <div id="coursesContainer">
+            <h3>Second Registered Semester Courses:</h3>
+           
+            <table id="coursesTable">
+                <thead>
+                  
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Nature</th>
+                        <th>Select</th>
+                        <% secondSemesterRegisteredCourses.forEach(course => { %>
+                    <tr>
+                      
+                        <td><%= course.code %></td>
+                        <td><%= course.title %></td>
+                        <td><%= course.credit %></td>
+                        <td><%= course.nature %></td>
+
+                        <form action="/deleteSecondCourse" method="post">
+                            <input type="text" value="<%= course._id  %>" name="courseId" hidden>
+                            <input type="text" value="<%= course.code %>" name="code" hidden>
+                            <td><button type="submit" style="color: white; background-color: red;"> Delete</button></td>
+                            <input type="hidden" value="<%= level %>">
+                        </form>
+                    </tr>
+                        <% }) %>
+                   
+                </thead>
+                <tbody></tbody>
+                
+            </table> 
+            <h3 style="color: red;"> Total Credit Unit: <%= secondTotalCredit %></h3>
+        
+          
+        </div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <% if (courses) { %>
+         
+      
+        <div id="coursesContainer">
+            <h3>First Semester Courses:</h3>
+            <table id="coursesTable">
+                <thead>
+                  
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Semester</th>
+                        <th>Nature</th>
+                        <th>Select</th>
+                        <% courses.forEach(course => { %>
+                    <tr>
+                      
+                        <td><%= course.code %></td>
+                        <td><%= course.title %></td>
+                        <td><%= course.credit %></td>
+                        <td><%= course.semester %></td>
+                        <td><%= course.nature %></td>
+
+                        <form action="/select" method="post">
+                            <input type="text" value="<%= course._id  %>" name="courseId" hidden>
+                            <input type="text" value="<%= course.level  %>" name="level" hidden>
+                            <input type="text" value="<%= course.code  %>" name="code" hidden>
+                            <input type="text" value="<%= course.title  %>" name="title" hidden>
+                            <input type="number" value="<%= course.credit  %>" name="credit" hidden>
+                            <input type="text" value="<%= course.semester  %>" name="semester" hidden>
+                            <input type="text" value="<%= course.nature  %>" name="nature" hidden>
+                            <td><button type="submit" style="color: white; background-color: green;"> Select</button></td>
+                            <input type="hidden" value="<%= level %>">
+                        </form>
+                    </tr>
+                        <% }) %>
+                   
+                </thead>
+                <tbody></tbody>
+                
+            </table>   
+        </div>
+
+        <% } else { %>
+            <h1> No Courses available. Check back later</h1>  
+            <% } %>
+
+
+        <div id="coursesContainer">
+            <h3>First Semester Courses:</h3>
+            <table id="coursesTable">
+                <thead>
+                  
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Credit Units</th>
+                        <th>Semester</th>
+                        <th>Nature</th>
+                        <th>Select</th>
+                        <% secondCourses.forEach(course => { %>
+                    <tr>
+                      
+                        <td><%= course.code %></td>
+                        <td><%= course.title %></td>
+                        <td><%= course.credit %></td>
+                        <td><%= course.semester %></td>
+                        <td><%= course.nature %></td>
+
+                        <form action="/selectsecondSemesterCourses" method="post">
+                            <input type="text" value="<%= course._id  %>" name="courseId" hidden>
+                            <input type="text" value="<%= course.level  %>" name="level" hidden>
+                            <input type="text" value="<%= course.code  %>" name="code" hidden>
+                            <input type="text" value="<%= course.title  %>" name="title" hidden>
+                            <input type="number" value="<%= course.credit  %>" name="credit" hidden>
+                            <input type="text" value="<%= course.semester  %>" name="semester" hidden>
+                            <input type="text" value="<%= course.nature  %>" name="nature" hidden>
+                            <td><button type="submit" style="color: white; background-color: green;"> Select</button></td>
+                            <input type="hidden" value="<%= level %>">
+                        </form>
+                    </tr>
+                        <% }) %>
+                   
+                </thead>
+                <tbody></tbody>
+                
+            </table>   
+        </div>
+
+      
+
+
+
+        
+
+       
+
+        <form action="/registered" method="post">
+            <input type="hidden" name="level" value="<%= level %>">
+            <button type="submit" id="submitButton">Register Courses</button>
+        </form>
+                       
+     
+    </div>
+    
+        <div id="registrationDetails" style="display:none;">
+            <h2>Course Registration Complete!</h2>
+            <div id="biodata">
+                <h3>BioData</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <td id="registeredName"></td>
+                    </tr>
+                    <tr>
+                        <th>Matric Number</th>
+                        <td id="registeredMatricNumber"></td>
+                    </tr>
+                    <tr>
+                        <th>Level</th>
+                        <td id="registeredLevel"></td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div id="registeredCourses">
+                <h3>Registered Courses</h3>
+                <ul id="registeredCoursesList"></ul>
+            </div>
+    
+            <button type="button" id="backBtn">Back to Course Reg</button>
+    
+           
+    
+      
+ 
+
+
+        
+
+ 
+  
+</body>
+ </html>
+

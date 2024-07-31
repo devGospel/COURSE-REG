@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="/css/inner.css">
+
+</head>
+<body>
+    <form action="/logout" method="post">
+        <button type="submit" id="logout"> Log out</button>
+    </form>
+    <section class="main">
+
+
+        <div class="head">
+            
+            <section class="logo" style="align-items: center; justify-content: center;">
+                 
+                <h1 style="color: orange;">Remita Gateway</h1>
+            </section>
+
+            <form id="paymentForm" action="/pay" method="post">
+                <div class="input-group">
+                    <label for="level">Select Level:</label>
+                    <select id="level" name="level" required>
+                        <option value="">Select Level </option>
+                        <option value="100">100 Level</option>
+                        <option value="200">200 Level</option>
+                        <option value="300">300 Level</option>
+                        <option value="400">400 Level</option>
+                        <option value="500">500 Level</option>
+                    </select>
+                </div>
+                
+                <br>
+
+                <div class="input-group">
+                    <label for="amount">Name: </label>
+                    <input type="text" name="username" id="amount" placeholder="Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="amount">Email: </label>
+                    <input type="email" name="email" id="email" placeholder="Email" required >
+                </div>
+                <div class="input-group">
+                    <label for="amount">Phone: </label>
+                    <input type="text" name="phone" id="amount" placeholder="Enter phone no." required>
+                </div>
+                <div class="input-group">
+                    <label for="amount">Amount To Be Paid:</label>
+                    <input type="text" id="amount" name="amount" value="N40,061.25" disabled>
+                </div>
+                <div class="input-group">
+                    <button id='pay' type="submit" class="payment-btn" > Pay now</button>
+                </div>
+
+            </form>
+
+       
+
+            <% if (message) { %>
+                <p id="msg" style="color: green;"> <%= message %> </p>
+            <% } %>
+            <% if (error) { %>
+                <p id="msg" style="color: red;"> <%= error %> </p>
+            <% } %>
+              
+            
+         
+    </section> 
+    <h3 class="footer1">&copy; Group 7 Assignment</h3>
+</body>
+</html>
